@@ -1,8 +1,8 @@
 # Identificação
 
-* Nome: 
-* Email (@ccc): 
-* Matrícula: 
+* Nome: João Antonio de Melo Queiroz
+* Email (@ccc): joao.antonio.melo.queiroz@ccc.ufcg.edu.br
+* Matrícula: 123210584
 
 # Roteiro: isAVL
 
