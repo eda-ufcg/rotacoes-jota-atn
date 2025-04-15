@@ -22,17 +22,46 @@ public class BST {
 
     }
 
-    /**
-     * Retorna a altura da árvore.
-     */
+    public boolean isLeftPending() {
+        return isLeftPending(this.root);
+    }
+
+    private boolean isLeftPending(Node current) {
+
+        if (current == null) return false;
+
+        else return balance(current) > 0;
+
+    }
+
+    public boolean isRightPending() {
+        return isRightPending(this.root);
+    }
+
+    private boolean isRightPending(Node current) {
+
+        if (current == null) return false;
+
+        else return balance(current) < 0;
+
+    }
+
+    public boolean isBalanced() {
+        return isBalanced(this.root);
+    }
+
+    private boolean isBalanced(Node current) {
+    
+        if (current == null) return false;
+
+        else return balance(current) == 0;
+
+    }
+
     public int height() {
         return height(this.root);
     }
 
-    /**
-     * Retorna a altura de um determinado nó. Auxiliar
-     * para recursão e para o balance.
-     */
     private int height(Node node) {
         if (node == null) return -1;
     
@@ -46,13 +75,6 @@ public class BST {
         return height(node.left) - height(node.right);
     }
 
-    /**
-     * Busca o nó cujo valor é igual ao passado como parâmetro. Essa é a implementação 
-     * iterativa clássica da busca binária em uma árvore binária de pesquisa.
-     * @param element O elemento a ser procurado.
-     * @return O nó contendo o elemento procurado. O método retorna null caso
-     * o elemento não esteja presente na árvore.
-     */
     public Node search(int element) {
         
         Node aux = this.root;
@@ -71,10 +93,6 @@ public class BST {
         return this.root == null;
     }
     
-    /**
-     * Implementação iterativa da adição de um elemento em uma árvore binária de pequisa.
-     * @param element o valor a ser adicionado na árvore.
-     */
     public void add(int element) {
         this.size += 1;
         if (isEmpty())

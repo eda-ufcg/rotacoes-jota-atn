@@ -1,4 +1,7 @@
 import static org.junit.jupiter.api.Assertions.*;
+
+import java.beans.Transient;
+
 import org.junit.jupiter.api.Test;
 
 public class RoteiroTest {
@@ -58,5 +61,59 @@ public class RoteiroTest {
     		bst.add(i);
 		assertTrue(bst.isAVL());
     }
+
+	@Test
+	public void testIsLeftPending() {
+
+		BST bst = new BST();
+
+		bst.add(100);
+		bst.add(50);
+		bst.add(25);
+
+		assertTrue(bst.isLeftPending());
+
+		bst = new BST();
+
+		bst.add(100);
+		bst.add(50);
+
+		assertTrue(bst.isLeftPending());
+
+		bst = new BST();
+
+		bst.add(100);
+		bst.add(150);
+
+		assertFalse(bst.isLeftPending());
+
+	}
+
+	@Test
+	public void testIsRightPending() {
+
+		BST bst = new BST();
+
+		bst.add(100);
+		bst.add(150);
+		bst.add(125);
+
+		assertTrue(bst.isRightPending());
+
+		bst = new BST();
+
+		bst.add(100);
+		bst.add(150);
+
+		assertTrue(bst.isRightPending());
+
+		bst = new BST();
+
+		bst.add(100);
+		bst.add(50);
+
+		assertFalse(bst.isRightPending());
+
+	}
 
 }
