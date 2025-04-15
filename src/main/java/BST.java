@@ -8,9 +8,17 @@ public class BST {
     private int size;
 
     public boolean isAVL() {
-        int balance = balance(this.root);
+        return isAvl(this.root);
+    }
+    
+    private boolean isAvl(Node current) {
+        if (current == null) return true;
+        
+        int balance = balance(current);
 
-        return balance <= 1 && balance >= -1;
+        if (Math.abs(balance) > 1) return false;
+
+        return isAvl(current.left) && isAvl(current.right);
 
     }
 
